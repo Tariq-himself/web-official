@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { type Dictionary, type Locale } from "@/i18n";
-import AnimatedSection from "@/components/ui/AnimatedSection";
 import PhoneMockup from "@/components/ui/PhoneMockup";
 
 interface SectionProps {
@@ -24,22 +23,22 @@ function MethodScreen() {
         <div className="text-[#888] text-[10px] mb-1">Week 3 · Day 2</div>
         <div className="text-white text-xs font-medium mb-2">Push Day</div>
         <div className="text-[10px] text-[#666] mb-2">Chest · Shoulders · Triceps</div>
-        <div className="w-full h-1.5 bg-[#333] rounded-full overflow-hidden mb-1">
+        <div className="w-full h-1.5 bg-[#333] rounded-full overflow-hidden mb-1" role="progressbar" aria-valuenow={60} aria-valuemin={0} aria-valuemax={100}>
           <div className="h-full w-[60%] bg-white rounded-full" />
         </div>
         <div className="text-[10px] text-[#888]">60% done</div>
       </div>
       <div className="space-y-2">
         <div className="flex items-center gap-2 text-[10px] text-white">
-          <span className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center">✓</span>
+          <span className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center" aria-hidden="true">✓</span>
           Barbell Bench Press 4 × 8
         </div>
         <div className="flex items-center gap-2 text-[10px] text-white">
-          <span className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center">✓</span>
+          <span className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center" aria-hidden="true">✓</span>
           Incline Dumbbell Press 3 × 10
         </div>
         <div className="flex items-center gap-2 text-[10px] text-white">
-          <span className="w-4 h-4 rounded-full bg-white flex items-center justify-center text-black font-bold text-[8px]">▶</span>
+          <span className="w-4 h-4 rounded-full bg-white flex items-center justify-center text-black font-bold text-[8px]" aria-hidden="true">▶</span>
           Cable Fly 3 × 12
         </div>
       </div>
@@ -74,7 +73,7 @@ function ThresholdScreen() {
           </div>
         </div>
       </div>
-      <div className="flex gap-1 items-end h-8">
+      <div className="flex gap-1 items-end h-8" aria-hidden="true">
         {[30, 50, 40, 70, 55, 80, 45].map((h, i) => (
           <div key={i} className="flex-1 bg-white/20 rounded-sm" style={{ height: `${h}%` }} />
         ))}
@@ -141,6 +140,7 @@ function NawartoScren() {
 export default function Work({ dict }: SectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const screens = [MethodScreen, ThresholdScreen, RedactScreen, NawartoScren];
+  const shouldReduceMotion = useReducedMotion() ?? false;
 
   const works = [
     dict.work.method,
@@ -152,34 +152,43 @@ export default function Work({ dict }: SectionProps) {
   const ActiveScreen = screens[activeIndex];
 
   return (
-    <section id="work" className="py-32 md:py-48 px-6 md:px-12">
+    <section id="work" className="py-32 md:py-48 px-6 md:px-12" aria-label="Selected work">
       <div className="max-w-[1400px] mx-auto">
-        <AnimatedSection>
-          <p className="text-xs font-medium text-[#666] uppercase tracking-[0.2em] mb-6">
-            {dict.work.label}
-          </p>
-        </AnimatedSection>
+        <motion.p
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-xs font-medium text-[#666] uppercase tracking-[0.2em] mb-6"
+        >
+          {dict.work.label}
+        </motion.p>
 
-        <AnimatedSection delay={0.1}>
+        <motion.div
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+        >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
             {dict.work.heading}
           </h2>
           <p className="text-base text-[#666] mb-16 md:mb-24 max-w-xl">
             {dict.work.subheading}
           </p>
-        </AnimatedSection>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, x: -20 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.4 }}
               >
-                <p className="text-xs font-mono text-[#444] mb-3">
+                <p className="text-xs font-mono text-[#444] mb-3" aria-hidden="true">
                   {works[activeIndex].number}
                 </p>
                 <p className="text-xs text-[#666] uppercase tracking-wider mb-2">
@@ -200,17 +209,19 @@ export default function Work({ dict }: SectionProps) {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex gap-3 mt-10">
+            <div className="flex gap-3 mt-10" role="tablist" aria-label="Project selector">
               {works.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                  role="tab"
+                  aria-selected={i === activeIndex}
+                  aria-label={`View project ${i + 1}: ${works[i].title}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 ${
                     i === activeIndex
                       ? "w-12 bg-white"
                       : "w-6 bg-[#333] hover:bg-[#555]"
                   }`}
-                  aria-label={`View project ${i + 1}`}
                 />
               ))}
             </div>
@@ -220,10 +231,10 @@ export default function Work({ dict }: SectionProps) {
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.4 }}
               >
                 <PhoneMockup>
                   <ActiveScreen />
