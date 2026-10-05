@@ -9,7 +9,7 @@ interface SectionProps {
 }
 
 export default function Studio({ dict }: SectionProps) {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useReducedMotion() ?? false;
 
   return (
     <section id="studio" className="py-32 md:py-48 px-6 md:px-12" aria-label="About the studio">
