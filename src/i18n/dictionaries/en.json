@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "studio": "Studio",
+    "work": "Work",
+    "process": "Process",
+    "contact": "Contact",
+    "startProject": "Start a project"
+  },
+  "hero": {
+    "brand": "WEBSITEABLE",
+    "tagline": "Your technical arm. We design and engineer exceptional apps and websites — so you never have to think about the tech.",
+    "ctaWork": "See our work",
+    "ctaProject": "Start a project",
+    "scroll": "Scroll"
+  },
+  "studio": {
+    "label": "The Studio",
+    "heading": "We are a fully Saudi studio building at a global standard. Premium by design, deliberate by choice — we take on a handful of projects and treat each like our own. From first pixel to production, we are the technical arm behind ambitious founders.",
+    "whatWeDo": "What we do"
+  },
+  "services": {
+    "heading": "One team. The full technical arm.",
+    "mobile": {
+      "number": "01",
+      "title": "Mobile Apps",
+      "description": "Native iOS and cross-platform apps engineered for performance, polish and the App Store. From concept to launch.",
+      "tags": "SwiftUI  ·  React Native  ·  Firebase  ·  StoreKit"
+    },
+    "websites": {
+      "number": "02",
+      "title": "Websites",
+      "description": "Cinematic, high-conversion websites with the it-factor. Motion, 3D and interaction that make premium brands feel premium.",
+      "tags": "Next.js  ·  WebGL  ·  Three.js  ·  Motion"
+    },
+    "products": {
+      "number": "03",
+      "title": "In-house Products",
+      "description": "We build and ship our own software too. Real products, real users, real revenue — so we know exactly what it takes.",
+      "tags": "Strategy  ·  Design  ·  Engineering  ·  Growth"
+    }
+  },
+  "work": {
+    "label": "Selected Work",
+    "heading": "Products we designed, engineered and shipped.",
+    "subheading": "Four in-house apps, live on the App Store. Each one proof that we handle the full technical journey — design, build and launch.",
+    "method": {
+      "number": "01",
+      "platform": "iOS  ·  Training",
+      "title": "Method",
+      "tagline": "Focused training. Real results. No noise.",
+      "description": "Method strips away the noise of everything-apps. Pick a track, follow a structured program with video coaching, and log every set. Built native in SwiftUI on a Firebase backend with StoreKit subscriptions.",
+      "tags": "5 program tracks  ·  Video-coached exercises  ·  Performance pillars  ·  Native SwiftUI + Firebase"
+    },
+    "threshold": {
+      "number": "02",
+      "platform": "iOS  ·  Athletics",
+      "title": "Threshold",
+      "tagline": "Built for athletes.",
+      "description": "Threshold makes you better at your sport in the gym. Programs designed by coaches with 10+ years training athletes, with performance you can feel in game. Region-aware, sport-first, ruthlessly focused.",
+      "tags": "Sport-specific programs  ·  Coach-built training  ·  Community sport voting  ·  Native SwiftUI + Firebase"
+    },
+    "redact": {
+      "number": "03",
+      "platform": "iOS  ·  Privacy",
+      "title": "Redact AI",
+      "tagline": "Capture. Redact. Copy.",
+      "description": "Redact AI captures text from any screen or document, then masks names, organizations and sensitive figures entirely on-device using Vision OCR and a CoreML NER model. No servers, no cloud AI. Then hand the clean text to ChatGPT, Claude, Gemini or Grok.",
+      "tags": "On-device OCR  ·  Automatic PII masking  ·  Zero data leaves device  ·  One-tap AI handoff"
+    },
+    "nawarto": {
+      "number": "04",
+      "platform": "iOS  ·  Events",
+      "title": "Nawarto",
+      "tagline": "Every invite, perfectly delivered.",
+      "description": "Nawarto brings hospitality-grade event management to WhatsApp. Design an invite, send it to your guest list, and track confirmations, dietary preferences, plus-ones and QR check-ins live. Bilingual EN/AR, built for the region.",
+      "tags": "WhatsApp-native invites  ·  Live RSVP tracking  ·  QR check-in  ·  Bilingual EN / AR"
+    }
+  },
+  "process": {
+    "label": "How we work",
+    "heading": "A calm, deliberate process behind loud results.",
+    "discover": {
+      "number": "01",
+      "title": "Discover",
+      "description": "We start with your goal, not a feature list. Deep on the problem, the users and what winning actually looks like."
+    },
+    "design": {
+      "number": "02",
+      "title": "Design",
+      "description": "Interface, motion and brand come together. Every screen is crafted to feel premium and effortless to use."
+    },
+    "build": {
+      "number": "03",
+      "title": "Build",
+      "description": "Native, performant, production-grade code. Firebase, StoreKit, WebGL — whatever the product truly needs."
+    },
+    "ship": {
+      "number": "04",
+      "title": "Ship",
+      "description": "App Store, web, analytics, iteration. We launch it, watch it, and keep making it better."
+    }
+  },
+  "contact": {
+    "label": "The next move",
+    "heading": "Have something\nworth building?",
+    "description": "Tell us about your app or website. We take on a handful of projects at a time — if it's a fit, we'll handle everything on the tech side.",
+    "cta": "Start your project"
+  },
+  "footer": {
+    "brand": "WEBSITEABLE",
+    "tagline": "A premium software studio in Riyadh, Saudi Arabia. We design and engineer exceptional apps and websites, and build our own products in-house.",
+    "navigate": "Navigate",
+    "contact": "Contact",
+    "startProject": "Start a project",
+    "location": "Riyadh, Saudi Arabia",
+    "copyright": "© 2026 Websiteable. All rights reserved.",
+    "credits": "Designed & engineered in Riyadh."
+  }
+}
